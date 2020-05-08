@@ -8,12 +8,13 @@ const forecast = require('./utils/forecast.js')
 const app = express()
 const port = process.env.PORT || 3000
 
+// Define Paths for Express Config
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
-
 app.use(express.static(path.join(__dirname,'../public')))
 hbs.registerPartials(partialsPath)
 
+// Setup handlebars, engines views location
 app.set('view engine','hbs') 
 app.set('views', viewsPath)
 app.get('', (req,res) => {
